@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Login Page</title>
+    <link th:href="@{/styles/global.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container unauthenticated" sec:authorize="isAnonymous()">
+    With Discord : <a th:href="@{/oauth2/authorization/discord}">click here</a>
+</div>
+
+<div class="container authenticated" sec:authorize="isAuthenticated()">
+    Logged in as: <span id="user" th:text="${#authentication.name}">User Name</span>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
