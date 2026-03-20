@@ -13,7 +13,7 @@ public class AppID {
     @NonNull
     String value;
 
-    private AppID(@NonNull String id) { this.value = id;};
+    private AppID(@NonNull String id) { this.value = id;}
 
     public static AppID fromString(@NonNull String idString) {
         Integer appIdInt = Integer.getInteger(idString);

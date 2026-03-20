@@ -13,7 +13,7 @@ public class SteamID {
     @NonNull
     String value;
 
-    private SteamID(@NonNull String id) { this.value = id;};
+    private SteamID(@NonNull String id) { this.value = id;}
 
     public static SteamID fromString(@NonNull String idString) {
         Integer appIdInt = Integer.getInteger(idString);
