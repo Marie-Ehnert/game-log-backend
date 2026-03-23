@@ -7,12 +7,12 @@ import src.gamelogbackend.core.valueobjects.SteamID;
 import java.time.LocalDate;
 
 @Builder
-public class User {
+public class SteamUser {
 
     @NonNull
-    private SteamID id;
+    private SteamID steamId;
     @NonNull
-    private String name;
+    private String steamUsername;
     @NonNull
     private String profileUrl;
     @NonNull

@@ -1,5 +1,6 @@
 package src.gamelogbackend.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,9 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfig {
+
+    @Autowired
+    public GameLogOAuth2UserService gameLogOAuth2UserService;
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) {
@@ -25,6 +29,9 @@ class WebSecurityConfig {
                 )
                 // Add Customizer.withDefaults() here:
                 .oauth2Login(oauth2 -> oauth2
+                        .userInfoEndpoint(userInfo -> userInfo
+                                .userService(gameLogOAuth2UserService)
+                        )
                         .defaultSuccessUrl("/", true)
                 )
                 // If you need logout, modern Spring often requires this too:
