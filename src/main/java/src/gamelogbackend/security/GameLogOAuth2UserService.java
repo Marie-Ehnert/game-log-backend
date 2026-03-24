@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import src.gamelogbackend.core.entites.DiscordUser;
 import src.gamelogbackend.core.ports.IDiscordUserRepositoryPort;
 import src.gamelogbackend.core.valueobjects.DiscordID;
+import src.gamelogbackend.secondary.exceptions.DiscordUserRepositoryException;
 
 import java.util.Objects;
 
@@ -43,8 +44,7 @@ public class GameLogOAuth2UserService extends DefaultOAuth2UserService {
 
             return oAuth2User;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new OAuth2AuthenticationException("Fehler beim SPeichern des neuen Users");
+            throw new DiscordUserRepositoryException("Fehler beim Speichern des neuen Users");
         }
 
     }
