@@ -1,6 +1,5 @@
 package src.gamelogbackend.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -13,11 +12,9 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 @EnableWebSecurity
 class WebSecurityConfig {
 
-    @Autowired
-    public GameLogOAuth2UserService gameLogOAuth2UserService;
-
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) {
+    SecurityFilterChain securityFilterChain(HttpSecurity http,
+                                            GameLogOAuth2UserService gameLogOAuth2UserService) {
         // @formatter:off
         http
                 .authorizeHttpRequests((requests) -> requests
