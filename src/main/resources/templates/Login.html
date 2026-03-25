@@ -8,11 +8,14 @@
 <body>
 
 <div class="container unauthenticated" sec:authorize="isAnonymous()">
-    With Discord : <a th:href="@{/oauth2/authorization/discord}">click here</a>
+    Sign in with:
+    <a th:href="@{/login/steam}">
+        <img th:src="@{/assets/sits_large_border.png}" alt="Login with Steam">
+    </a>
 </div>
 
 <div class="container authenticated" sec:authorize="isAuthenticated()">
-    Logged in as: <span id="user" th:text="${#authentication.name}">User Name</span>
+    Logged in as SteamID: <span th:text="${#authentication.getPrincipal()}"></span>
     <div>
         <form th:action="@{/logout}" method="post">
             <button type="submit">Logout</button>

@@ -13,25 +13,16 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 class WebSecurityConfig {
 
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http,
-                                            GameLogOAuth2UserService gameLogOAuth2UserService) {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) {
         // @formatter:off
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/login", "/error", "/styles/**").permitAll()
+                        .requestMatchers("/", "/login",  "/login/steam", "/login/callback", "/failure", "/error", "/styles/**", "/assets/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
-                // Add Customizer.withDefaults() here:
-                .oauth2Login(oauth2 -> oauth2
-                        .userInfoEndpoint(userInfo -> userInfo
-                                .userService(gameLogOAuth2UserService)
-                        )
-                        .defaultSuccessUrl("/", true)
-                )
-                // If you need logout, modern Spring often requires this too:
                 .logout(l -> l
                         .logoutSuccessUrl("/").permitAll()
                 );

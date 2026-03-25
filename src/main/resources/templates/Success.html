@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <title>YAY!</title>
+    <link th:href="@{/styles/global.css}" rel="stylesheet" />
+</head>
+<body>
+<h1 th:inline="text">You are logged in as SteamID:  <span th:text="${#authentication.getPrincipal()}"></span></h1>
+</body>
+</html>
