@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		Game Log | Profile
+	</title>
+	<link rel="stylesheet" th:href="@{/styles/global.css}"/>
+</head>
+<body>
+<div id="main-div">
+	<h1>Game Log | Profile</h1>
+	<div id="nav">
+		<ul>
+			<li><a th:href="@{/index}">Home</a></li>
+			<li>Logs</li>
+			<li><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="steam-user" th:object="${steamUser}">
+			<div>
+				<p>Logged in as</p>
+				<img alt="profile picture" th:src="${steamUser.getAvatarUrl()}">
+				<p th:text="'Username: ' + ${steamUser.getSteamUsername()}"></p>
+				<p th:text="'SteamID: ' + ${steamUser.getSteamId().value()}"></p>
+				<p
+						th:text="'Last Logoff: ' + ${steamUser.getLastLogOff().getDayOfMonth()} + '.' + ${steamUser.getLastLogOff().getMonth()} + '.' + ${steamUser.getLastLogOff().getYear()}"></p>
+				<a target="_blank"
+				   th:href="${steamUser.getProfileUrl()}" th:text="'Link to profile: ' + ${steamUser.getProfileUrl()}">No
+					Profile Picture
+					available</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+</body>
+</html>

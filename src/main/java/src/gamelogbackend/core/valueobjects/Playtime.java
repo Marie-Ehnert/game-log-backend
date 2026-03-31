@@ -6,23 +6,28 @@ import lombok.experimental.Accessors;
 
 @Value
 @Accessors(fluent = true)
-public class Playtime {
+public class Playtime
+{
+    @NonNull
+    Integer value;
 
-    @NonNull Integer value;
-
-    private Playtime(@NonNull Integer playtimeValueInMinutes) {
+    private Playtime(@NonNull Integer playtimeValueInMinutes)
+    {
         this.value = playtimeValueInMinutes;
     }
 
-    public Playtime inMinutes() {
-       return new Playtime(this.value());
+    public Playtime inMinutes()
+    {
+        return new Playtime(this.value());
     }
 
-    public Playtime inHours() {
+    public Playtime inHours()
+    {
         return new Playtime(inMinutes().value() / 60);
     }
 
-    public Playtime inDays() {
+    public Playtime inDays()
+    {
         return new Playtime(inHours().value() / 24);
     }
 }

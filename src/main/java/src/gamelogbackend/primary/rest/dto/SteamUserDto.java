@@ -1,22 +1,26 @@
-package src.gamelogbackend.core.entites;
+package src.gamelogbackend.primary.rest.dto;
 
-import java.time.LocalDateTime;
-
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import src.gamelogbackend.core.valueobjects.SteamID;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-@Getter
-public class SteamUser
+public class SteamUserDto
 {
     @NonNull
-    private SteamID steamId;
+    private String steamId;
+
     @NonNull
     private String steamUsername;
+
     @NonNull
     private String profileUrl;
+
     @NonNull
     private String communityVisibilityState;
 
@@ -24,7 +28,7 @@ public class SteamUser
     private String profileState;
 
     @NonNull
-    private LocalDateTime lastLogOff;
+    private String lastLogOff;
 
     @NonNull
     private String avatarUrl;

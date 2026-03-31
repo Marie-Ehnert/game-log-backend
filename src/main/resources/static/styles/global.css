@@ -1,7 +1,7 @@
 /* Globale Farben von Steam */
 :root {
-    --steam-dark-blue: #1b2838;
-    --steam-gradient-top: #2a475e;
+    --steam-dark-blue: #192534;
+    --steam-gradient-top: #30516b;
     --steam-gradient-bottom: #1b2838;
     --steam-text-color: #c7d5e0;
     --steam-accent-blue: #66c0f4;
@@ -43,8 +43,86 @@ body {
 }
 
 /* Text-Styling */
-h1, p {
+p {
     margin-bottom: 1.5rem;
     font-weight: 300;
     letter-spacing: 1px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 2.8rem;
+}
+
+/* --- Navigation Styles --- */
+#nav ul {
+    list-style-type: none; /* Entfernt die Aufzählungspunkte */
+    padding: 0;
+    margin: 2rem 0;
+    display: flex; /* Macht die Liste flexibel */
+    justify-content: center;
+    gap: 20px; /* Abstand zwischen den Links */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+#nav li {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+#nav a {
+    color: var(--steam-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#nav a:hover {
+    color: var(--steam-accent-blue);
+}
+
+/* --- Profil Content Styles --- */
+#main-div {
+    width: 100%;
+    max-width: 75em; /* Begrenzt die Breite auf dem Bildschirm */
+    margin: 0 auto;
+}
+
+#steam-user {
+    background: var(--steam-card-bg);
+    padding: 2rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#steam-user img {
+    border: 2px solid var(--steam-accent-blue);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.3);
+}
+
+#steam-user p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+#steam-user a {
+    color: var(--steam-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+#steam-user a:hover {
+    color: var(--steam-accent-blue);
 }
