@@ -1,7 +1,18 @@
+/* Globale Farben von Steam */
+:root {
+    --steam-dark-blue: #192534;
+    --steam-gradient-top: #30516b;
+    --steam-gradient-bottom: #1b2838;
+    --steam-text-color: #c7d5e0;
+    --steam-accent-blue: #66c0f4;
+    --steam-card-bg: rgba(0, 0, 0, 0.4);
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #2c2f33;
-    color: #ffffff;
+    background: radial-gradient(circle at top, var(--steam-gradient-top) 0%, var(--steam-gradient-bottom) 100%);
+    background-attachment: fixed;
+    color: var(--steam-text-color);
+    font-family: "Motiva Sans", Sans-serif; /* Steam Standard Font */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,46 +20,109 @@ body {
     margin: 0;
 }
 
+/* Die Login-Karte */
 .container {
-    background-color: #23272a;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--steam-card-bg);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     text-align: center;
-    min-width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.container a,
-.container button {
-    display: inline-block;
-    background-color: #5865F2;
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: inherit;
-    margin-top: 15px;
-    transition: background-color 0.2s;
-}
-
-.container button:hover {
-    background-color: #4752c4;
-}
-
-/* Da das Formular ein Block-Element ist, zentrieren wir es */
-form {
-    margin: 0;
+.container a {
+    background: none;
     padding: 0;
+    display: inline-block;
+    transition: transform 0.2s ease;
 }
 
-a:hover, button:hover {
-    background-color: #4752c4;
+.container a:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
-#user {
-    font-weight: bold;
-    color: #00ffcc;
+/* Text-Styling */
+p {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 2.8rem;
+}
+
+/* --- Navigation Styles --- */
+#nav ul {
+    list-style-type: none; /* Entfernt die Aufzählungspunkte */
+    padding: 0;
+    margin: 2rem 0;
+    display: flex; /* Macht die Liste flexibel */
+    justify-content: center;
+    gap: 20px; /* Abstand zwischen den Links */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+#nav li {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+#nav a {
+    color: var(--steam-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#nav a:hover {
+    color: var(--steam-accent-blue);
+}
+
+/* --- Profil Content Styles --- */
+#main-div {
+    width: 100%;
+    max-width: 75em; /* Begrenzt die Breite auf dem Bildschirm */
+    margin: 0 auto;
+}
+
+#steam-user {
+    background: var(--steam-card-bg);
+    padding: 2rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#steam-user img {
+    border: 2px solid var(--steam-accent-blue);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.3);
+}
+
+#steam-user p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+#steam-user a {
+    color: var(--steam-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+#steam-user a:hover {
+    color: var(--steam-accent-blue);
 }

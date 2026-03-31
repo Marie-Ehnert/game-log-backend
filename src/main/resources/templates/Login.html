@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6" lang="en">
 <head>
-    <title>Login Page</title>
+	<title>Game-Log | Login</title>
     <link th:href="@{/styles/global.css}" rel="stylesheet" />
 </head>
 <body>
 
 <div class="container unauthenticated" sec:authorize="isAnonymous()">
-    With Discord : <a th:href="@{/oauth2/authorization/discord}">click here</a>
+    Sign in with:
+    <a th:href="@{/login/steam}">
+        <img th:src="@{/assets/sits_large_border.png}" alt="Login with Steam">
+    </a>
 </div>
 
 <div class="container authenticated" sec:authorize="isAuthenticated()">
-    Logged in as: <span id="user" th:text="${#authentication.name}">User Name</span>
+    Logged in as SteamID: <span th:text="${#authentication.getPrincipal()}"></span>
     <div>
         <form th:action="@{/logout}" method="post">
             <button type="submit">Logout</button>
