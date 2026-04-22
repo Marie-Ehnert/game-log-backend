@@ -2,6 +2,7 @@ HELP.md
 Notes.md
 secrets.env
 codestyle.xml
+secrets.properties
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
