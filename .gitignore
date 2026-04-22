@@ -2,8 +2,8 @@ HELP.md
 Notes.md
 secrets.env
 codestyle.xml
-secrets.properties
 target/
+**/src/main/resources/secrets.properties
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
